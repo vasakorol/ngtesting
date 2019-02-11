@@ -1,0 +1,8 @@
+<div class="list">
+  <div *ngFor="let item of list" class="list-item">
+    <img [src]="item.avatar" alt="avatar" />
+    <span>{{ item.id }}. </span>
+    <span>{{ item.first_name }}</span>
+    <span>{{ item.last_name }}</span>
+  </div>
+</div>
