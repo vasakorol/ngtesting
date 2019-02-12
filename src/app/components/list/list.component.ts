@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ListingService} from '../../services/listing.service';
-import { Response } from '../../models/response';
-import {User} from '../../models/user';
+import { ListingService } from '../../services/listing.service';
+import { UserResponse } from '../../models/user-response';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'ngt-list',
@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
   }
 
   getList() {
-    this.listingService.getPromList().then((response: Response) => {
+    this.listingService.getPromList().then((response: UserResponse) => {
       this.list = response.data;
     });
   }

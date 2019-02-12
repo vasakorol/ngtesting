@@ -1,17 +1,17 @@
 import {User} from './user';
 
-export class Response {
+export class UserResponse {
   readonly page: number;
-  readonly perPage: number;
+  readonly per_page: number;
   readonly total: number;
-  readonly totalPages: number;
+  readonly total_pages: number;
   readonly data: User[] | any;
 
   constructor(obj?: any) {
     this.page = obj && obj.page ? obj.page : null;
-    this.perPage = obj && obj.perPage ? obj.perPage : null;
+    this.per_page = obj && obj.per_page ? obj.per_page : null;
     this.total = obj && obj.total ? obj.total : null;
-    this.totalPages = obj && obj.totalPages ? obj.totalPages : null;
+    this.total_pages = obj && obj.total_pages ? obj.total_pages : null;
     this.data = obj && obj.data ? obj.data : [];
   }
 }
