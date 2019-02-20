@@ -33,9 +33,9 @@ describe('ListingService', () => {
 
   const userResponseMock = {
     page: 1,
-    per_page: 3,
+    perPage: 3,
     total: 12,
-    total_pages: 4,
+    totalPages: 4,
     data: [
       {id: 1, first_name: 'George', last_name: 'Bluth', avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg'},
       {id: 2, first_name: 'Janet', last_name: 'Weaver', avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg'}
@@ -62,14 +62,25 @@ describe('ListingService', () => {
       });
     });
     it('should return an Observable', () => {
+      let first = true;
       listingService.users.subscribe(users => {
-        console.log('step 2', users);
-        // expect(users).toBe(0);
+        if (first) {
+          expect(users.length).toEqual(0);
+          first = false;
+        } else {
+          expect(users.length).toEqual(userResponseMock.data.length);
+        }
       });
       listingService.getList();
       const req = httpMock.expectOne(`https://reqres.in/api/users`);
       expect(req.request.method).toBe('GET');
       req.flush(userResponseMock);
+    });
+  });
+
+  describe('#getPromise List', () => {
+    it('should get data from promise', (done) => {
+
     });
   });
 });

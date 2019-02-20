@@ -24,9 +24,12 @@ export class ListingService {
 
   getPromList() {
     return new Promise((resolve, reject) => {
-      this.apiService.get('https://reqres.in/api/users').toPromise().then((response: UserResponse) => {
-        resolve(response);
-      });
+      this.apiService.get('https://reqres.in/api/users')
+        .toPromise()
+        .then((response: UserResponse) => {
+          resolve(response);
+        })
+        .catch(error => reject(error));
     });
   }
 

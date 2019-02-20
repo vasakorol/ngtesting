@@ -22,8 +22,8 @@ export class ListComponent implements OnInit {
   }
 
   getList() {
-    this.listingService.getPromList().then((response: UserResponse) => {
-      this.list = response.data;
-    });
+    // this.listingService.getPromList().then((response: UserResponse) => {
+    //   this.list = response.data;
+    // });
   }
 }
